@@ -9,12 +9,14 @@ spec:
       image: busybox:latest
       imagePullPolicy: IfNotPresent
       command:
-        - ["/bin/sh", "-c"]
+        - ["/bin/sh"]
+        - ["-c"]
         - ["touch /tmp/healthy; sleep 20; rm -rf /tmp/healthy; sleep 500"]
       livenessProbe:
         exec:
           command:
-            - ["test","-e"]
+            - ["test"]
+            - ["-e"]
             - ["/tmp/healthy"]
         initialDelaySeconds: 2
         periodSeconds: 3
