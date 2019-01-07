@@ -13,7 +13,7 @@ spec:
           containerPort: 80
       livenessProbe:
         httpGet:
-          port: 80
+          port: http
           path: /index.html
         initialDelaySeconds: 1
         periodSeconds: 3
