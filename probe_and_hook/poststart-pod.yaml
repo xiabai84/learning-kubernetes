@@ -15,3 +15,4 @@ spec:
       #command: ['/bin/sh','-c','sleep 3600']
       command: ["/bin/httpd"]
       args: ["-f","-h /tmp"]
+# this script is not correct!
