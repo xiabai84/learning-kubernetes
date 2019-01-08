@@ -23,3 +23,9 @@ spec:
           ports:
           - name: http
             containerPort: 80
+          livenessProbe:
+            httpGet:
+              port: http
+              path: /index.html
+            initialDelaySeconds: 1
+            periodSeconds: 3
