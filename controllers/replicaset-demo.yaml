@@ -1,0 +1,25 @@
+apiVersion: apps/v1
+kind: ReplicaSet
+metadata:
+  name: rs-demo-app
+  namespace: default
+spec:
+  replicas: 2
+  selector:
+    matchLabels:
+      app: rs-demo-app
+      release: canary
+  template:
+    metadata:
+      name: rs-demo-app-pod
+      labels:
+        app: rs-demo-app
+        release: canary
+        enviroment: qa
+    spec:
+      containers:
+        - name: rs-demo-app-container
+          image: ikubernetes/myapp:v1
+          ports:
+          - name: http
+            containerPort: 80
