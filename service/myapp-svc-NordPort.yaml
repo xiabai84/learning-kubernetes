@@ -34,10 +34,10 @@ metadata:
 spec:
   selector:
     app: myapp
-    role: canary
+    release: canary
   clusterIP: 10.99.99.99
   type: NodePort
   ports:
     - port: 80
       targetPort: 80
-      nodePort: 30081
+      nodePort: 30080
