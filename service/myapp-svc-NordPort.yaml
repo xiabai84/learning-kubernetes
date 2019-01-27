@@ -4,7 +4,7 @@ metadata:
   name: myapp-deploy
   namespace: default
 spec:
-  replicas: 3
+  replicas: 5
   selector:
     matchLabels:
       app: myapp
@@ -17,7 +17,7 @@ spec:
     spec:
       containers:
         - name: myapp-container
-          image: ikubernetes/myapp:v2
+          image: ikubernetes/myapp:v3
           ports:
             - name: http
               containerPort: 80
