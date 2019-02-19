@@ -25,10 +25,8 @@ spec:
       volumeMounts:
         - mountPath: /data/
           name: html
-      command:
-        - "/bin/sh"
-        - "-c"
-        - "while true; do $(date) >> /data/index.html; sleep 2; done"
+      command: ["/bin/sh"]
+      args: ["-c", "while true; do $(date) >> /data/index.html; sleep 2; done"]
   volumes:
     - name: html
       emptyDir: {}
