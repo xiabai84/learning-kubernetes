@@ -12,13 +12,12 @@ spec:
   containers:
     - name: mypp
       image: ikubernetes/myapp:v1
+      imagePullPolicy: IfNotPresent
       ports:
       - name: http
         containerPort: 80
-      - name: https
-        containerPort: 443
       volumeMounts:
-        - mountPath: /data/web/html/
+        - mountPath: /usr/share/nginx/html/
           name: html
     - name: busybox
       image: busybox:latest
@@ -29,7 +28,7 @@ spec:
       command:
         - "/bin/sh"
         - "-c"
-        - "$(date) >> /data/index.html"
+        - "while true; do $(date) >> /data/index.html; sleep 2; done"
   volumes:
     - name: html
       emptyDir: {}
