@@ -1,0 +1,50 @@
+apiVersion: v1
+kind: PersistentVolume
+metadata:
+  name: nfs-pv01-demo
+  labels:
+    name: pv01
+  # pv doesn't need to define namespace but pvc does!
+spec:
+  nfs:
+    path: /data/v1 # for pv01
+    server: k8snode2
+  accessModes:
+    - ReadWriteMany
+    - ReadWriteOnce
+  capacity:
+    storage: 20Mi
+---
+apiVersion: v1
+kind: PersistentVolume
+metadata:
+  name: nfs-pv02-demo
+  labels:
+    name: pv02
+  # pv doesn't need to define namespace but pvc does!
+spec:
+  nfs:
+    path: /data/v2 # for pv02
+    server: k8snode2
+  accessModes:
+    - ReadWriteMany
+    - ReadWriteOnce
+  capacity:
+    storage: 20Mi
+---
+apiVersion: v1
+kind: PersistentVolume
+metadata:
+  name: nfs-pv03-demo
+  labels:
+    name: pv03
+  # pv doesn't need to define namespace but pvc does!
+spec:
+  nfs:
+    path: /data/v3 # for pv03
+    server: k8snode2
+  accessModes:
+    - ReadWriteMany
+    - ReadWriteOnce
+  capacity:
+    storage: 20Mi
