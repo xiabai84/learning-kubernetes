@@ -1,0 +1,29 @@
+apiVersion: v1
+kind: Pod
+metadata:
+  name: pod-configmap-demo
+  namespace: default
+  labels:
+    app: myapp
+    tier: frontend
+  annotations:
+    crazy-chinese.com/created-by: "cluster-admin"
+spec:
+  containers:
+    - name: mypp
+      image: ikubernetes/myapp:v1
+      imagePullPolicy: IfNotPresent
+      ports:
+      - name: http
+        containerPort: 80
+      env:
+        - name: NGINX_SERVER_PORT
+          valueFrom:
+            configMapKeyRef:
+              name: myconfig # pre configured configmap name: kubectl create configmap myconfig --from-literal=nginx_port=80 --from-literal=server_name=k8smaster
+              key: nginx_port
+        - name: NGINX_SERVER_NAME
+          valueFrom:
+            configMapKeyRef:
+              name: myconfig
+              key: nginx_name
