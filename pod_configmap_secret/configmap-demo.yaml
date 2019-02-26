@@ -26,4 +26,4 @@ spec:
           valueFrom:
             configMapKeyRef:
               name: myconfig
-              key: nginx_name
+              key: server_name
