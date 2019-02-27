@@ -28,7 +28,7 @@ spec:
         app: myapp-pod
     spec:
       containers:
-        - name: myapp
+        - name: myapp-container
           image: ikubernetes/myapp:v1
           ports:
             - containerPort: 80
